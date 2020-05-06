@@ -30,6 +30,8 @@ As a student who enjoys studying in cafes and restaurants, and is acquainted wit
 []  Select appropriate colors, pictures, and Icons for page
 []  Create pseudo-locations or select a handful to test
 []  Have Icons change color based on rating
+        [] Food
+        [] Service
         [] Handicap Accessability
         [] Bathroom Cleanliness
         [] Other Things?
