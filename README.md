@@ -6,6 +6,9 @@ Allyson Phillips
 ## What is it? ##
 As a student who enjoys studying in cafes and restaurants, and is acquainted with many likeminded individuals, I wanted to create and Yelp-Style app to help people find suitable locations for remote work and study.
 
+## ¯\_(ツ)_/¯ ##
+
+
 ## MVP Plan: ##
 ```
 []  Create the framework
@@ -29,18 +32,12 @@ As a student who enjoys studying in cafes and restaurants, and is acquainted wit
 []  Create Comments Page
 []  Select appropriate colors, pictures, and Icons for page
 []  Create pseudo-locations or select a handful to test
-[]  Have Icons change color based on rating
-        [] Food
-        [] Service
-        [] Handicap Accessability
-        [] Bathroom Cleanliness
-        [] Other Things?
-        [] Overall Rank (Should that be case by case or auto-cumulative of other scores?)
 []  User Survey for Restaurant
         *Tables/Seating/Standing
         *Power Outlets
         *Noise
         *Added Perks
+[]  Apply Rating System
 []  Keywords in Search Options and Results
         [] Added Perks
 ```
@@ -51,6 +48,13 @@ As a student who enjoys studying in cafes and restaurants, and is acquainted wit
 []  Add API to show how busy a location is
 []  Add Pop-up alerts
 []  Add a Colorblind option
+[]  Have Icons change color based on rating
+        [] Food
+        [] Service
+        [] Handicap Accessability
+        [] Bathroom Cleanliness
+        [] Other Things?
+        [] Overall Rank (Should that be case by case or auto-cumulative of other scores?)
 ```
 ## Thoughts and Maybes ##
 ```
