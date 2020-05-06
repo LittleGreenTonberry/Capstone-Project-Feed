@@ -3,7 +3,7 @@ A Full-Stack Web App
 By
 Allyson Phillips
 
-## Why? ##
+## What is it? ##
 As a student who enjoys studying in cafes and restaurants, and is acquainted with many likeminded individuals, I wanted to create and Yelp-Style app to help people find suitable locations for remote work and study.
 
 ## MVP Plan: ##
