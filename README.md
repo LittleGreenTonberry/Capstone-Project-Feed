@@ -87,11 +87,12 @@ Survey Models are as follows :
 []  Add API to show how busy a location is
 []  Add Pop-up alerts
 []  Add a Colorblind option
-[]  Have Icons change color based on rating        
+[]  Have Icons change color based on rating  
+[]  Add Google/Facebook/LinkedIn Verification?
 ```
 ## Thoughts and Maybes ##
 ```
-[] Overall Rank (Should that be case by case or auto-cumulative of other scores?)
+[]  Overall Rank (Should that be case by case or auto-cumulative of other scores?)
 []  Should I add Terms and Conditions in the future?
 []  TBD
 ```
