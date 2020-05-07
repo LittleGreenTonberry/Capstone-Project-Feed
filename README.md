@@ -6,6 +6,7 @@ Allyson Phillips
 ## What is it? ##
 A Yelp-Style App that helps people find comfortable places to study, work remotely, or hold meetings in a dining environemnt..
 ## Timeline ##
+'''
 (This is all tentitive)
 
 5/4-5/7 - Spend too much focusing on proposal
@@ -18,13 +19,14 @@ A Yelp-Style App that helps people find comfortable places to study, work remote
 5/19-5/22 - Fine Tune the product.
 5/23-5/27 - See if I can add some of the advanced ideas.
 
-PRESENT...
-
+**PRESENT...**
+'''
 ## ¯\\_(ツ)_/¯ ##
 Class Whatever, am I right?
 ## Data Models ## ((I wish I knew how to draw))
 
 Users types are split into General User and Restaurant as follows:
+'''
         []	User
                         *Name (First and Last....  is that needed?)
                         *User Name
@@ -36,8 +38,9 @@ Users types are split into General User and Restaurant as follows:
                         *Phone Number
                         *Hours
                         *Capacity
-
+'''
 Survey Models are as follows :
+'''
         *Tables/Seating/Standing
         *Power Outlets
         *Noise
@@ -47,6 +50,7 @@ Survey Models are as follows :
         *Bathroom Cleanliness
         *TBD
         *Added Perks
+'''
 ## MVP Plan: ##
 ```
 []  Create the framework
