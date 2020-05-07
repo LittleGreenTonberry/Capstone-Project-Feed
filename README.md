@@ -25,10 +25,11 @@ A Yelp-Style App that helps people find comfortable places to study, work remote
 Class Whatever, am I right?
 
 ## Features ##
-As a student, I want to be able to find locations that are close to home/dorm, comfortable and not crowded, with access to Wi-Fi, light snacks, and power supplies.
+As a student or remote worker, I want to be able to find locations that are close to home/dorm, comfortable and not crowded, with access to Wi-Fi, light snacks, and power supplies.
 
-As a remote worker, I have no idea....  >_< 
+As a person seeking locations for business meetings, I want to be able to find locations that are able to handle possibly larger groups of people, possibly have seperate seating areas, and the ability to address specific needs.
 
+As a Restaurant, I want to be able to make myself known to Users, be able to show what we offer,  and be able to monitor comments and reviews.
 
 ## Data Models ## ((I wish I knew how to draw))
 
@@ -38,13 +39,16 @@ Users types are split into General User and Restaurant as follows:
                         *Name (First and Last....  is that needed?)
                         *User Name
                         *Password
-                        *Email address
+                        *Email address (Which can be used for Log-In)
         []	Restaurant
                         *Restaurant Name
                         *Address
                         *Phone Number
                         *Hours
                         *Capacity
+                        *Website
+                        *Price Range
+                        *Radio-Buttons to show what we can "provide"
 ```
 Survey Models are as follows :
 ```
