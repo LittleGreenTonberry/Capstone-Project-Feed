@@ -1,11 +1,15 @@
-# Project: Feed #
+# Project: Feed
+
 A Full-Stack Web App
 By
 Allyson Phillips
 
-## What is it? ##
+## What is it?
+
 A Yelp-Style App that helps people find comfortable places to study, work remotely, or hold meetings in a dining environemnt..
-## Timeline ##
+
+## Timeline
+
 ```
 (This is all tentitive)
 
@@ -21,26 +25,30 @@ A Yelp-Style App that helps people find comfortable places to study, work remote
 
 **PRESENT...**
 ```
-## ¯\\_(ツ)_/¯ ##
+
+## ¯\\_(ツ)_/¯
+
 Class Whatever, am I right?
 
-## Features ##
+## Features
+
 As a student or remote worker, I want to be able to find locations that are close to home/dorm, comfortable and not crowded, with access to Wi-Fi, light snacks, and power supplies.
 
 As a person seeking locations for business meetings, I want to be able to find locations that are able to handle possibly larger groups of people, possibly have seperate seating areas, and the ability to address specific needs.
 
-As a Restaurant, I want to be able to make myself known to Users, be able to show what we offer,  and be able to monitor comments and reviews.
+As a Restaurant, I want to be able to make myself known to Users, be able to show what we offer, and be able to monitor comments and reviews.
 
 ## Data Models ## ((I wish I knew how to draw))
 
 Users types are split into General User and Restaurant as follows:
+
 ```
-        []	User
+        []      User
                         *Name (First and Last....  is that needed?)
-                        *User Name
+                        *User Name(Email Address)
                         *Password
                         *Email address (Which can be used for Log-In)
-        []	Restaurant
+        []      Restaurant
                         *Restaurant Name
                         *Address
                         *Phone Number
@@ -50,7 +58,9 @@ Users types are split into General User and Restaurant as follows:
                         *Price Range
                         *Radio-Buttons to show what we can "provide"
 ```
+
 Survey Models are as follows :
+
 ```
         *Tables/Seating/Standing
         *Power Outlets
@@ -62,15 +72,17 @@ Survey Models are as follows :
         *TBD
         *Added Perks
 ```
-## MVP Plan: ##
+
+## MVP Plan:
+
 ```
-[]  Create the framework
+[x]  Create the framework
 []  Create Website
 []  Create Database
-[]  Create Fillable Forms
-[]  Create Sign-in Pages 
-[]  Find and Create APIs
-        []	Research Google Maps API
+[x]  Create Fillable Forms
+[]  Create Sign-in Pages
+[x]  Find and Create APIs
+        []      Research Google Maps API
         []      Research a few other APIs (Forgot their names)
 []  Create Comments Page
 []  Select appropriate colors, pictures, and Icons for page
@@ -79,7 +91,9 @@ Survey Models are as follows :
 []  Apply Rating System
 []  Apply Keywords in Search Options and Results
 ```
-## Advanced Plans: ##
+
+## Advanced Plans:
+
 ```
 []  Create Curation/Favorites option
 []  Ensure Mobile-Friendliness
@@ -87,12 +101,17 @@ Survey Models are as follows :
 []  Add API to show how busy a location is
 []  Add Pop-up alerts
 []  Add a Colorblind option
-[]  Have Icons change color based on rating  
+[]  Have Icons change color based on rating
 []  Add Google/Facebook/LinkedIn Verification?
+[]  Add Role Verification? (Have me contact them?  Create Test?)
 ```
-## Thoughts and Maybes ##
+
+## Thoughts and Maybes
+
 ```
 []  Overall Rank (Should that be case by case or auto-cumulative of other scores?)
 []  Should I add Terms and Conditions in the future?
 []  TBD
+[]  Create a button/link/whatever that leads to a Location creation page, and hide it if they don't have that checkbox?
+[]  Add Tags to assist Search
 ```
