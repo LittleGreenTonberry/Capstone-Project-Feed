@@ -70,6 +70,9 @@ class Location(models.Model):
     res_join = models.DateTimeField(verbose_name="date_res_join", auto_now_add=True,)
     res_mod = models.DateTimeField(verbose_name="date_res_mod", auto_now=True,)
     res_image = models.ImageField(verbose_name="restaurant_image", blank=True,)
+    features = models.ManyToManyField(
+        "Feature", through="LocationFeatures", through_fields=("location", "feature")
+    )
 
 
 class Features(models.Model):
