@@ -96,8 +96,6 @@ class Reviews(models.Model):
 
     # def __unicode__(self):
     #     return self.name
-    location = models.ForeignKey("Location", on_delete=models.CASCADE)
-    feature = models.ForeignKey("Features", on_delete=models.CASCADE)
     user = models.ForeignKey(
         verbose_name="user",
         to=settings.AUTH_USER_MODEL,
@@ -130,4 +128,13 @@ class Category(models.Model):
 class Favorites(models.Model):
     user = models.ForeignKey(
         User, related_name="favorite_places", on_delete=models.SET_NULL, null=True,
+    )
+
+
+class LocationFeatures(models.Model):
+    location = models.ForeignKey("Location", on_delete=models.CASCADE)
+    feature = models.ForeignKey("Features", on_delete=models.CASCADE)
+    rating = models.IntegerField(
+        verbose_name="feature_rating",
+        validators=[MaxValueValidator(5), MinValueValidator(1)],
     )
