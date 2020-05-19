@@ -90,18 +90,21 @@ class Reviews(models.Model):
         verbose_name="main_rating",
         validators=[MaxValueValidator(5), MinValueValidator(1)],
     )
-    # def average_rating(self):
-    #     all_ratings = map(lambda x: x.rating, self.review_set.all())
-    #     return np.mean(all_ratings)
-
-    # def __unicode__(self):
-    #     return self.name
     user = models.ForeignKey(
         verbose_name="user",
         to=settings.AUTH_USER_MODEL,
         related_name="reviews",
         on_delete=models.CASCADE,
     )
+
+
+class Rating(models.Model):
+    def average_rating(self):
+        all_ratings = map(lambda x: x.rating, self.review_set.all())
+        return np.mean(all_ratings)
+
+    def __unicode__(self):
+        return self.name
 
 
 class Comments(models.Model):
