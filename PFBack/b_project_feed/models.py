@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
+from PIL import Image
 import numpy as np
 import random
 import string
@@ -41,7 +42,7 @@ class Profile(models.Model):
         verbose_name="registration_code", max_length=15, default=code_registration,
     )
     links = models.URLField(verbose_name="shared_links", blank=True,)
-    # image = models.ImageField(blank=True)
+    image = models.ImageField(blank=True)
 
 
 class Location(models.Model):
@@ -63,15 +64,18 @@ class Location(models.Model):
     zipcode = models.CharField(verbose_name="location_zip", max_length=10,)
     website = models.URLField(verbose_name="location_website", blank=True,)
     phone = models.CharField(verbose_name="location_phone", max_length=10,)
-    open_close = models.TimeField(verbose_name="location_hours", max_length=50)
+    biz_open = models.TimeField(verbose_name="location_open", max_length=50)
+    biz_close = models.TimeField(verbose_name="location_close", max_length=50)
     # (Is there a way to make business hours a multiple entry field?)
     res_join = models.DateTimeField(verbose_name="date_res_join", auto_now_add=True,)
     res_mod = models.DateTimeField(verbose_name="date_res_mod", auto_now=True,)
-    # res_image = models.ImageField(verbose_name="restaurant_image", blank=True,)
+    res_image = models.ImageField(verbose_name="restaurant_image", blank=True,)
 
 
 class Features(models.Model):
-    offered = models.ManyToManyField()
+    offered = models.CharField(max_length=50)
+    description = models.TextField()
+    ##How do I set the ratings properly?
     feat_rating = models.IntegerField(
         verbose_name="feature_rating",
         validators=[MaxValueValidator(5), MinValueValidator(1)],
@@ -89,6 +93,8 @@ class Reviews(models.Model):
 
     # def __unicode__(self):
     #     return self.name
+    location = models.ForeignKey("Location", on_delete=models.CASCADE)
+    feature = models.ForeignKey("Features", on_delete=models.CASCADE)
     user = models.ForeignKey(
         verbose_name="user",
         to=settings.AUTH_USER_MODEL,
