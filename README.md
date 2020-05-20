@@ -91,7 +91,7 @@ Survey Models are as follows :
 []  Apply Rating System
 []  Apply Keywords in Search Options and Results
 []  Connect "User" and "Add Restaurant" if needed (Cannot add location without signing in )
-
+[]  Change the Grid to better suite screen types
 ```
 
 ## Advanced Plans:
