@@ -90,6 +90,8 @@ Survey Models are as follows :
 []  User Survey for Restaurant
 []  Apply Rating System
 []  Apply Keywords in Search Options and Results
+[]  Connect "User" and "Add Restaurant" if needed (Cannot add location without signing in )
+
 ```
 
 ## Advanced Plans:
