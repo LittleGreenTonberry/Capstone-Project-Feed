@@ -95,7 +95,7 @@ Survey Models are as follows :
 ## Advanced Plans:
 
 ```
-[]  Create Curation/Favorites option
+[x]  Create Curation/Favorites option
 []  Ensure Mobile-Friendliness
 []  Create Roulette option (Picks a restaurant within a distance range)
 []  Add API to show how busy a location is
