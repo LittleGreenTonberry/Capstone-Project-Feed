@@ -1,0 +1,96 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link rel='stylesheet' href='{%static ' style.css ' %}'> {% endcomment %}
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital@1&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project:Feed</title>
+</head>
+
+<body>
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
+    <div class="pf-grid-container container">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Project:Feed</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li>
+                <a class="nav-link" href='#'>Add Restaurant</a>
+                </li>
+            </ul>
+            <div class="mx-2">
+                <button class="btn btn-outline-light" href="#">Sign-in</button>
+                <button class="btn btn-outline-light" href="#">Create Account</button>
+
+            </div>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search.." aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>
+{% block content %} {% endblock %}
+        <div class="pf-Footnotes">Created by Allyson Phillips 2020</div>
+    </div>
+</body>
+
+</html>
+    {% comment %} <h2>Welcome to Project:Feed</h2>
+    <div id='app'>
+        <button @click='getUser'>Show me</button>
+        <ul v-for='item in profile' :key='item.id'>
+            <li>[[item.name]]</li>
+            <li>[[item.email]]</li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+</body>
+
+</html>
+<script>
+    let app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            profile: [],
+            new_user: {
+                'user': '',
+                'name': '',
+                'favorites': '',
+                'email_regex': '',
+                'email': '',
+                'registration': '',
+                'links': '',
+                'image': '',
+            },
+        },
+        methods: {
+            getUser() {
+                axios({
+                        method: 'get',
+                        url: '/api/v1/profile/',
+                    })
+                    .then(response => this.profile = response.data)
+            }
+        },
+        mounted: function() {
+            //this.getUser()
+        }
+    })
+</script> {% endcomment %}

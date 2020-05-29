@@ -26,6 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/',include('ProjectFeed.urls')),
     path('',TemplateView.as_view(template_name="index.html"),name="index"),
+    path('about',TemplateView.as_view(template_name="about.html"),name="about"),
+    path('roulette',TemplateView.as_view(template_name="roulette.html"),name="roulette"),
+    path('signin',TemplateView.as_view(template_name="signin.html"),name="signin"),
+    path('signup',TemplateView.as_view(template_name="signup.html"),name="signup"),
 
 
 ]

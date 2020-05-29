@@ -1,57 +1,60 @@
 {% load static%}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='{%static ' style.css ' %}'>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue"></script>
     <title>Project:Feed</title>
 </head>
-
-<body>
-    <h2>Welcome to Project:Feed</h2>
-    <div id='app'>
-        <button @click='getUser'>Show me something</button>
-        <ul v-for='item in profile' :key='item.id'>
-            <li>[[item.name]]</li>
-            <li>[[item.email]]</li>
-        </ul>
+<header>
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
+    <!--BTNBAR-->
+    <div class="btnbar">
+    {% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+    {% else %}
+        <p>Welcome, new user. Please log in.</p>
+    {% endif %}
+        <a href="/signin"><button class="btn btn-outline-light">Sign-in</button></a>
+        <a href="/signup"><button class="btn btn-outline-light">Sign-up</button></a>
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <header>
+            <a href="/" class="navtop">Project:Feed</a>
+            <div class="toggle"></div>
+        </header>
+        <div class="content">
+            <ul>
+                <li class="nav-item">
+                    <a class="nav-link" href='/about'>About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='/roulette'>Roulette</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue"></script>
+    <!--SEARCH-->
+    <div class="search">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search.." aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</header>
+    <!--BODY-->
+<body>
+{% block content %} {% endblock %}
 </body>
 
+<footer>
+    <!--FOOTBAR-->
+    <div class="foot">Created by Allyson Phillips 2020</div>
+</footer>
+
 </html>
-<script>
-    let app = new Vue({
-        el: '#app',
-        delimiters: ['[[', ']]'],
-        data: {
-            profile: [],
-            new_user: {
-                'user': '',
-                'name': '',
-                'favorites': '',
-                'email_regex': '',
-                'email': '',
-                'registration': '',
-                'links': '',
-                'image': '',
-            },
-        },
-        methods: {
-            getUser() {
-                axios({
-                        method: 'get',
-                        url: '/api/v1/profile/',
-                    })
-                    .then(response => this.profile = response.data)
-            }
-        },
-        mounted: function() {
-            this.getUser()
-        }
-    })
-</script>
+

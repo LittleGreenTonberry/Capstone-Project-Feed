@@ -1,20 +1,46 @@
-{% extends 'masterfeed.html' %}
+{% extends 'index.html' %}
 {% block content %}
 <div id=app>
-    <p>[[ title ]]</p>
-    <ul>
-        <li v-for="location in locations">
-            <h4> Location [[ location ]]</h4>
-        </li>
-    </ul>
+    <h2>Welcome to Project:Feed</h2>
+    <div id='app'>
+        <button @click='getUser'>Show me</button>
+        <ul v-for='item in profile' :key='item.id'>
+            <li>[[item.name]]</li>
+            <li>[[item.email]]</li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
 </div>
+
 <script>
-    new Vue({
-        delimiters: ['[[', ']]'],
+    let app = new Vue({
         el: '#app',
+        delimiters: ['[[', ']]'],
         data: {
-            title: 'Welcome to Project:Feed',
-            locations: [1,2,3]
+            profile: [],
+            new_user: {
+                'user': '',
+                'name': '',
+                'favorites': '',
+                'email_regex': '',
+                'email': '',
+                'registration': '',
+                'links': '',
+                'image': '',
+            },
+        },
+        methods: {
+            getUser() {
+                axios({
+                        method: 'get',
+                        url: '/api/v1/profile/',
+                    })
+                    .then(response => this.profile = response.data)
+            }
+        },
+        mounted: function() {
+            //this.getUser()
         }
     })
 

@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div id=app>
+    <div class="signup">
+        <form action="#" method="post" />
+        <div class="container">
+            <div class="user-size">
+                <fieldset class="user">
+                    <legend> Sign-Up </legend>
+                    <input type="text" name="email" placeholder="Email Address" pattern="[a-z]{1,15}" required/>
+                    <input type="text" name="password" placeholder="Password" pattern="^(?=.*\d).{4,8}$" title="Password needs to be between 4 and 12 characters" required/>
+                    <br>
+                    <input type="text" name="name" placeholder-="First + Last Name" required />
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" name="phone" placeholder="xxx-xxx-xxxx" required />
+                    <br>
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" name="dob" placeholder="Date of Birth" required />
+                    <br>
+                    <input type="text" name="city" placeholder="City" required />
+                    <input type="text" name="state" placeholder="State" required />
+                    <br>
+                    <input type="text" name="zip" placeholder="Zip" required />
+            </fieldset>
+        </div>
+    </div>
+
+{% endblock %}

@@ -16,7 +16,7 @@ from .forms import *
 
 def index(request):
     context = {
-        'locations': [],
+        'locations': []
     }
     return render(request, 'locations.html', context)
 
