@@ -1,0 +1,22 @@
+{% extends 'masterfeed.html' %}
+{% block content %}
+<div id=app>
+    <p>[[ title ]]</p>
+    <ul>
+        <li v-for="location in locations">
+            <h4> Location [[ location ]]</h4>
+        </li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        delimiters: ['[[', ']]'],
+        el: '#app',
+        data: {
+            title: 'Welcome to Project:Feed',
+            locations: [1,2,3]
+        }
+    })
+
+</script>
+{% endblock %}

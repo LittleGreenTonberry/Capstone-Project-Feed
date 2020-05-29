@@ -1,5 +1,5 @@
 """
-WSGI config for ProjectFeed project.
+WSGI config for Project_Feed project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProjectFeed.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Project_Feed.settings')
 
 application = get_wsgi_application()

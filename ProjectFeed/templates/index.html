@@ -1,0 +1,57 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='{%static ' style.css ' %}'>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project:Feed</title>
+</head>
+
+<body>
+    <h2>Welcome to Project:Feed</h2>
+    <div id='app'>
+        <button @click='getUser'>Show me something</button>
+        <ul v-for='item in profile' :key='item.id'>
+            <li>[[item.name]]</li>
+            <li>[[item.email]]</li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+</body>
+
+</html>
+<script>
+    let app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            profile: [],
+            new_user: {
+                'user': '',
+                'name': '',
+                'favorites': '',
+                'email_regex': '',
+                'email': '',
+                'registration': '',
+                'links': '',
+                'image': '',
+            },
+        },
+        methods: {
+            getUser() {
+                axios({
+                        method: 'get',
+                        url: '/api/v1/profile/',
+                    })
+                    .then(response => this.profile = response.data)
+            }
+        },
+        mounted: function() {
+            this.getUser()
+        }
+    })
+</script>

@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from rest_framework import viewsets
@@ -14,6 +13,13 @@ from .serializers import (
 from .forms import *
 
 # Create your views here.
+
+def index(request):
+    context = {
+        'locations': [],
+    }
+    return render(request, 'locations.html', context)
+
 class LocationViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
@@ -42,3 +48,4 @@ class CommentsViewSet(viewsets.ModelViewSet):
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+

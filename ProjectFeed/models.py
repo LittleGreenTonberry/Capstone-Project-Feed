@@ -26,10 +26,10 @@ def code_registration(length=6):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE,)
-    location = models.CharField(verbose_name="profile", max_length=30,)
-    favorites = models.ManyToManyField("Favorites", 
-        verbose_name="user_favorites", default="No Favorites Yet!"
-    )
+    name = models.CharField(verbose_name="profile", max_length=30,)
+    # favorites = models.ManyToManyField("Favorites", 
+    #     verbose_name="user_favorites", default="No Favorites Yet!"
+    # )
     email_regex = RegexValidator(
         regex=r"^[a-z0-9\._]+@\w+\.\w{2,3}$",
         flags=re.IGNORECASE,
