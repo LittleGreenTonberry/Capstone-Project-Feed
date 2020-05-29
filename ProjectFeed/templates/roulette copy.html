@@ -1,25 +1,18 @@
 {% extends 'index.html' %} {% block content %} {% comment %}
 <div>
     <h3>Under Construction</h3> {% endcomment %}
-    <div id=app>
-        <div v-for="location in currentLocation" :key='location.id' class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">[[location.name]]</h5>
-                    <p class="card-text">
-                        <a href="[[location.website]]">
-                            [[location.website]]
-                        </a>
-                    </p>
-                </div>
-                <ul class=" list-group list-group-flush ">
-                    <li class='list-group-item'>Address: [[location.address]]</li>
-                    <li class='list-group-item'>City: [[location.city]]</li>
-                    <li class='list-group-item'>Phone: [[location.phone]]</li>
-                    <li class='list-group-item'>Hours: [[location.biz_open]] - [[location.biz_close]]</li>
-                </ul>
-            </div>
+    <div v-for="location in locations" :key='location.id' class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">[[location.name]]</h5>
+            <p class="card-text">[[location.website]]</p>
         </div>
+        <ul class="list-group list-group-flush">
+            <li class='list-group-item'>Address: [[item.address]]</li>
+            <li class='list-group-item'>City: [[item.city]]</li>
+            <li class='list-group-item'>Phone: [[item.phone]]</li>
+            <li class='list-group-item'>Opens: [[item.biz_open]]</li>
+            <li class='list-group-item'>Closes: [[item.biz_close]]</li>
+        </ul>
     </div>
 
     <script>

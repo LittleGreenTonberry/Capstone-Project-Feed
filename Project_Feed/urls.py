@@ -19,6 +19,7 @@ from django.urls import include,path
 from django.conf import settings
 # import ProjectFeed.urls
 from django.views.generic import TemplateView
+from ProjectFeed.views import login, logout
 
 
 
@@ -28,8 +29,11 @@ urlpatterns = [
     path('',TemplateView.as_view(template_name="index.html"),name="index"),
     path('about',TemplateView.as_view(template_name="about.html"),name="about"),
     path('roulette',TemplateView.as_view(template_name="roulette.html"),name="roulette"),
+    path('locations',TemplateView.as_view(template_name="locations.html"),name="locations"),
     path('signin',TemplateView.as_view(template_name="signin.html"),name="signin"),
     path('signup',TemplateView.as_view(template_name="signup.html"),name="signup"),
+    path('auth/login', login, name='login'),
+    path('auth/logout', logout, name='logout'),
 
 
 ]

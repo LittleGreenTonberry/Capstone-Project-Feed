@@ -1,48 +1,50 @@
-{% extends 'index.html' %}
-{% block content %}
-<div id=app>
-    <h2>Welcome to Project:Feed</h2>
-    <div id='app'>
-        <button @click='getUser'>Show me</button>
-        <ul v-for='item in profile' :key='item.id'>
-            <li>[[item.name]]</li>
-            <li>[[item.email]]</li>
-        </ul>
+{% extends 'index.html' %} {% block content %} {% comment %}
+<div>
+    <h3>Under Construction</h3> {% endcomment %}
+    <div id=app>
+        <div class='row'>
+            <div v-for="location in locations" :key='location.id' class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">[[location.name]]</h5>
+                        <p class="card-text">
+                            <a href="[[location.website]]">
+                                [[location.website]]
+                            </a>
+                        </p>
+                    </div>
+                    <ul class=" list-group list-group-flush ">
+                        <li class='list-group-item'>Address: [[location.address]]</li>
+                        <li class='list-group-item'>City: [[location.city]]</li>
+                        <li class='list-group-item'>Phone: [[location.phone]]</li>
+                        <li class='list-group-item'>Hours: [[location.biz_open]] - [[location.biz_close]]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let app = new Vue({
+                el: '#app',
+                delimiters: ['[[', ']]'],
+                data: {
+                    locations: []
+                },
+                methods: {
+                    getLocations() {
+                        axios({
+                                method: 'get',
+                                url: '/api/v1/locations/?format=json',
+                            })
+                            .then(response => {
+                                this.locations = response.data
+                            })
+                    }
+                },
+                mounted: function() {
+                    this.getLocations()
+                }
+            })
+        </script>
     </div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue"></script>
-</div>
-
-<script>
-    let app = new Vue({
-        el: '#app',
-        delimiters: ['[[', ']]'],
-        data: {
-            profile: [],
-            new_user: {
-                'user': '',
-                'name': '',
-                'favorites': '',
-                'email_regex': '',
-                'email': '',
-                'registration': '',
-                'links': '',
-                'image': '',
-            },
-        },
-        methods: {
-            getUser() {
-                axios({
-                        method: 'get',
-                        url: '/api/v1/profile/',
-                    })
-                    .then(response => this.profile = response.data)
-            }
-        },
-        mounted: function() {
-            //this.getUser()
-        }
-    })
-
-</script>
-{% endblock %}
+    {% endblock %}

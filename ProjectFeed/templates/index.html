@@ -1,60 +1,71 @@
-{% load static%}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
+
     <title>Project:Feed</title>
 </head>
-<header>
-    <noscript>
-        You need to enable JavaScript to run this app.
-    </noscript>
-    <!--BTNBAR-->
-    <div class="btnbar">
-    {% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
-    {% else %}
-        <p>Welcome, new user. Please log in.</p>
-    {% endif %}
-        <a href="/signin"><button class="btn btn-outline-light">Sign-in</button></a>
-        <a href="/signup"><button class="btn btn-outline-light">Sign-up</button></a>
-    <!-- NAVBAR -->
-    <div class="navbar">
-        <header>
-            <a href="/" class="navtop">Project:Feed</a>
-            <div class="toggle"></div>
-        </header>
-        <div class="content">
-            <ul>
-                <li class="nav-item">
-                    <a class="nav-link" href='/about'>About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href='/roulette'>Roulette</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!--SEARCH-->
-    <div class="search">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search.." aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</header>
-    <!--BODY-->
-<body>
-{% block content %} {% endblock %}
-</body>
 
+<body>
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Project:Feed</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/locations">Locations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/roulette">Roulette</a>
+                    </li>
+                </ul>
+                <div class="navbar-right mr-2">
+                    {% if user.is_authenticated %}
+                    <a href="/auth/logout"><button class="btn btn-outline-light">Sign-out</button></a> {% else %}
+                    <a href="/signin"><button class="btn btn-outline-light">Sign-in</button></a> {% endif %}
+                    <a href="/signup"><button class="btn btn-outline-light">Sign-up</button></a>
+                </div>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container mt-3">
+        {% block content %}
+        <h1>Home Page!</h1>
+        <img src="https://thechivery.imgix.net/products/DUMPSTERFIREpngcopy.jpg?v=1586363799&auto=format&lossless=false&fm=jpeg&q=50" width="800px" height="400px" /> {% endblock %} </main>
+
+
+</body>
 <footer>
     <!--FOOTBAR-->
-    <div class="foot">Created by Allyson Phillips 2020</div>
+    <div class="foot fixed-bottom">Created by Allyson Phillips 2020</div>
 </footer>
 
 </html>
-

@@ -1,4 +1,6 @@
 from django.http import HttpResponse
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import  logout as auth_logout
 from django.shortcuts import render, redirect
 from rest_framework import viewsets
 from .models import Location, Features, Profile, Reviews, Comments, Category
@@ -19,6 +21,23 @@ def index(request):
         'locations': []
     }
     return render(request, 'locations.html', context)
+
+
+def login(request):
+    username = request.POST['username']
+    password = request.POST['pass']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        auth_login(request, user)
+        return redirect('/')
+    else:
+        return redirect('/')
+
+
+def logout(request):
+    auth_logout(request)
+    return redirect('/')
+
 
 class LocationViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()

@@ -1,0 +1,96 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue"></script>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Project:Feed</title>
+</head>
+<!-- <header>
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
+    <!--BTNBAR--
+<div class="">
+    {% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}!</p>
+    <a href="/auth/logout"><button class="btn btn-outline-light">Sign-out</button></a> {% else %}
+    <a href="/signin"><button class="btn btn-outline-light">Sign-in</button></a> {% endif %}
+    <a href="/signup"><button class="btn btn-outline-light">Sign-up</button></a>
+    <!-- NAVBAR --
+    <nav class="navbar bg-dark">
+        <a class="navbar-brand" href="/">Project:Feed</a>
+        <div class="toggle"></div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/roulette">Roulette</a>
+                </li>
+            </ul>
+            {% if user.is_authenticated %}
+            <p>Welcome, {{ user.username }}!</p>
+            <a href="/auth/logout"><button class="btn btn-outline-light">Sign-out</button></a> {% else %}
+            <a href="/signin"><button class="btn btn-outline-light">Sign-in</button></a> {% endif %}
+            <a href="/signup"><button class="btn btn-outline-light">Sign-up</button></a>
+            <!--SEARCH--
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search.." aria-label="Search">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    </header> -->
+<!--BODY-->
+
+<body>
+    <div class="container">
+
+        <!-- Static navbar -->
+        <nav class="navbar navbar-default navbar-static-top bg-dark">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Project:Feed</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/roulette">Roulette</a></li>
+                    </ul>
+                    <div class="navbar-right">
+                        {% if user.is_authenticated %}
+                        <p>Welcome, {{ user.username }}!</p>
+                        <a href="/auth/logout"><button class="btn btn-outline-light">Sign-out</button></a> {% else %}
+                        <a href="/signin"><button class="btn btn-outline-light">Sign-in</button></a> {% endif %}
+                        <a href="/signup"><button class="btn btn-outline-light">Sign-up</button></a>
+                    </div>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search.." aria-label="Search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container-fluid -->
+        </nav>
+        {% block content %} {% endblock %}
+</body>
+
+<footer>
+    <!--FOOTBAR-->
+    <div class="foot">Created by Allyson Phillips 2020</div>
+</footer>
+
+</html>
